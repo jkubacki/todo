@@ -6,7 +6,7 @@ export default Ember.ArrayController.extend({
       var title = this.get('newTitle');
 
       if(!title) { return false; }
-      if(!title.trim()) { return }
+      if(!title.trim()) { return; }
 
       var todo = this.store.createRecord('todo', {
         title: title,
@@ -49,6 +49,6 @@ export default Ember.ArrayController.extend({
 
   inflection: function(){
     var remaining = this.get('remaining');
-    return remaining === 1 ? 'todo' : 'todos'
+    return remaining === 1 ? 'todo' : 'todos';
   }.property('remaining')
 });
