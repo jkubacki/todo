@@ -25,6 +25,10 @@ export default Ember.ArrayController.extend({
     }
   },
 
+  allAreDone: function(){
+    return !!this.get('length') && this.isEvery('isCompleted');
+  }.property('@each.isCompleted'),
+
   hasCompleted: function(){
     return this.get('completed') > 0;
   }.property('completed'),
